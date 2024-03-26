@@ -3,6 +3,8 @@ kind: Job
 metadata:
   name: counter
   annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
     helm.sh/hook-delete-policy: before-hook-creation
     helm.sh/hook: post-install,post-upgrade
 spec:
