@@ -9,11 +9,11 @@ spec:
     server: "https://kubernetes.default.svc"
   project: default
   source:
-    path: helm-app
+    path: helm-app-with-helm-hooks
     repoURL: "https://github.com/lukaszjozwiak/argocd-helm-k8s.git"
     targetRevision: main
     helm:
-      releaseName: helm-app
+      releaseName: helm-app-with-helm-hooks
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

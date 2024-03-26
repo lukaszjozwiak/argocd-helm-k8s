@@ -3,14 +3,14 @@ kind: Job
 metadata:
   name: counter
   annotations:
-    "helm.sh/hook-delete-policy": before-hook-creation
-    "helm.sh/hook": post-install,post-upgrade
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   template:
     spec:
       containers:
         - name: counter
           image: busybox
-          command: [ "sh", "-c", "for i in $(seq 1 100); do echo $i; sleep 1; done" ]
+          command: [ "sh", "-c", "for i in $(seq 1 10); do echo $i; sleep 1; done" ]
       restartPolicy: Never
   backoffLimit: 4
